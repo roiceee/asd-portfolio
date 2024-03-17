@@ -1,0 +1,7 @@
+@media (max-width: 767px) {
+  /* Your CSS rules for mobile devices go here */
+  .profileImage {
+    width: 160px;
+    height: 160px;
+  }
+}
