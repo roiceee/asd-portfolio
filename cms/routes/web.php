@@ -5,6 +5,7 @@ use App\Http\Controllers\CommunityExpController;
 use App\Http\Controllers\PortfolioController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProjectController;
+use App\Http\Controllers\TechstackController;
 use Illuminate\Foundation\Application;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
@@ -113,6 +114,31 @@ Route::patch('/community/edit', function (Request $request) {
 
     return app()->make(CommunityExpController::class)->patch($request);
 })->middleware(['auth', 'verified'])->name('community/edit');
+
+Route::get('/techstack', function (Request $request) {
+
+    return app()->make(TechstackController::class)->get($request);
+})->middleware(['auth', 'verified'])->name('techstack');
+
+Route::get('/techstack/add', function (Request $request) {
+
+    return app()->make(TechstackController::class)->add($request);
+})->middleware(['auth', 'verified'])->name('techstack/add');
+
+Route::put('/techstack/add', function (Request $request) {
+
+    return app()->make(TechstackController::class)->create($request);
+})->middleware(['auth', 'verified'])->name('techstack/create');
+
+Route::get('/techstack/edit/{id}', function (Request $request, string $id) {
+
+    return app()->make(TechstackController::class)->edit($request, $id);
+})->middleware(['auth', 'verified'])->name('techstack/edit');
+
+Route::put('/techstack/edit', function (Request $request) {
+
+    return app()->make(TechstackController::class)->patch($request);
+})->middleware(['auth', 'verified'])->name('techstack/patch');
 
 
 Route::middleware('auth')->group(function () {

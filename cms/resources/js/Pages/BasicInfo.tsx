@@ -91,6 +91,7 @@ export default function BasicInfo({ auth, basic_info }: PageProps) {
                                     className="mt-4"
                                 />
                                 <FileInputWithLabel
+                                    require={data.image_path === ""}
                                     acceptType="image/*"
                                     id="image"
                                     label="Image"

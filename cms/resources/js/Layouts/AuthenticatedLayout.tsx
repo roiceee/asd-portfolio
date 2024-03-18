@@ -49,6 +49,12 @@ export default function Authenticated({
                                 >
                                     Community
                                 </NavLink>
+                                <NavLink
+                                    href={route("techstack")}
+                                    active={route().current("techstack*")}
+                                >
+                                    Techstack
+                                </NavLink>
                             </div>
                         </div>
 
@@ -170,6 +176,12 @@ export default function Authenticated({
                             active={route().current("community*")}
                         >
                             Community
+                        </ResponsiveNavLink>
+                        <ResponsiveNavLink
+                            href={route("techstack")}
+                            active={route().current("techstack*")}
+                        >
+                            Techstack
                         </ResponsiveNavLink>
                     </div>
 

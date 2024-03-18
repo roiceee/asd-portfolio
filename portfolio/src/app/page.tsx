@@ -115,7 +115,7 @@ export default async function Home() {
           <div>
             {projectsData.map((project) => (
               <ProjectCard
-                className="mx-auto"
+                className="mx-auto mt-2"
                 key={project.id}
                 title={project.title}
                 description={project.description}

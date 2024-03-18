@@ -12,6 +12,7 @@ interface Props {
     setValue: (e: any) => void;
     className?: string;
     acceptType?: string;
+    require?: boolean;
 }
 
 export function FileInputWithLabel({
@@ -20,6 +21,7 @@ export function FileInputWithLabel({
     setValue,
     className,
     acceptType,
+    require,
 }: Props) {
     return (
         <div
@@ -28,6 +30,7 @@ export function FileInputWithLabel({
             <Label htmlFor={id}>{label}</Label>
 
             <Input
+                required={require}
                 accept={acceptType ? acceptType : ""}
                 type={"file"}
                 id={id}

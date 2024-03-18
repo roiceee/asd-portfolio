@@ -43,7 +43,7 @@ export default function AddProjectForm({
                 {imageSrc && (
                     <div className="mt-6">
                         <span>Current Image:</span>
-                        <a href={imagePath}>
+                        <a href={imagePath} target="_blank">
                             <img src={imageSrc} className="w-16 h-16" />
                         </a>
                     </div>

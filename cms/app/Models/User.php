@@ -62,4 +62,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(CommunityExperience::class, 'user_id');
     }
+
+    public function techstacks()
+    {
+        return $this->hasMany(Techstack::class, 'user_id');
+    }
 }
