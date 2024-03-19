@@ -4,11 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\ProfileUpdateRequest;
 use App\Models\BasicInfo;
+use App\Services\FileHandler;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Storage;
 use Inertia\Inertia;
 use Inertia\Response;
 
@@ -61,6 +63,16 @@ class ProfileController extends Controller
         $user->portfolio()->delete();
         $user->projects()->delete();
         $user->basicInfo()->delete();
+        $user->communityExperience()->delete();
+        $user->techstacks()->delete();
+
+        //delete all of directories of storage facade
+
+        Storage::deleteDirectory('basicinfo');
+        Storage::deleteDirectory('community');
+        Storage::deleteDirectory('portfolio');
+        Storage::deleteDirectory('projects');
+        Storage::deleteDirectory('techstack');
 
         $user->delete();
         $request->session()->invalidate();

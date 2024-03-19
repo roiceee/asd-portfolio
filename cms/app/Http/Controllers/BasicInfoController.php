@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 use App\Models\BasicInfo;
+use App\Services\FileHandler;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 
@@ -27,18 +28,14 @@ class BasicInfoController extends Controller
         // Get request data
         $requestData = $request->all();
 
-        // Log the request
-        Log::info($request);
-
         // Get the uploaded file from the request
         $file = $request->file('data.image_data');
 
         // Check if a file is provided
         if ($file !== null) {
-            // Process the uploaded file
-            Storage::deleteDirectory("public/images");
-            $storagePath = $file->store('images', "public");
-            $requestData['data']['image_path'] = asset('storage/' . $storagePath);
+            Storage::deleteDirectory('basicinfo');
+            $return = FileHandler::saveFile($file, 'basicinfo');
+            $requestData['data']['image_path'] = $return['path'];
         }
 
         // Find the BasicInfo model instance based on the user ID

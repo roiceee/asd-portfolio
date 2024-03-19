@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Portfolio;
+use App\Services\FileHandler;
 use Illuminate\Http\Request;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Log;
@@ -32,9 +33,9 @@ class PortfolioController extends Controller
         if ($portfolioData && isset($portfolioData['file'])) {
             $file = $portfolioData['file'];
             if ($file instanceof UploadedFile) {
-                Storage::deleteDirectory("public/portfolios");
-                $storagePath = $file->store('portfolios', "public");
-                $path = asset('storage/' . $storagePath);
+                Storage::deleteDirectory('portfolio');
+                $return = FileHandler::saveFile($file, 'portfolio');
+                $path = $return['path'];
             }
         } else {
             // Handle case where file is not provided

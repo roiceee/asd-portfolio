@@ -70,7 +70,7 @@ class TechstackController extends Controller
         $image = $data['data']['image'];
 
         if ($image) {
-            FileHandler::deleteFile($newTechstack->image_path);
+            FileHandler::deleteFile('techstack', $newTechstack->image_path);
             $return = FileHandler::saveFile($image, "techstack");
             $newTechstack->image_path = $return['path'];
         }
@@ -93,7 +93,7 @@ class TechstackController extends Controller
 
         $techstack = Techstack::where('id', $data['id'])->first();
 
-        FileHandler::deleteFile($techstack->image_path);
+        FileHandler::deleteFile('techstack', $techstack->image_path);
 
         $techstack->delete();
 

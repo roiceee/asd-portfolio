@@ -37,7 +37,7 @@ class ProjectController extends Controller
 
         //delete using filehandler class
 
-        FileHandler::deleteFile($project->image_path);
+        FileHandler::deleteFile('projects', $project->image_path);
 
 
         if ($project) {
@@ -76,7 +76,7 @@ class ProjectController extends Controller
         $project = Project::where('user_id', $userId)->where('id', $projectId)->first();
 
         if ($image) {
-            FileHandler::deleteFile($data['data']['image_path']);
+            FileHandler::deleteFile('projects', $project->image_path);
             $return = FileHandler::saveFile($image, 'projects');
             $imagePath = $return['path'];
             $imageName = $return['filename'];

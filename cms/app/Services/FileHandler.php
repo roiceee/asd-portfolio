@@ -10,9 +10,13 @@ class FileHandler
 {
     public static function saveFile(UploadedFile $file, $path)
     {
-        $filename = $file->getClientOriginalName();
-        $filePath = $file->store($path, "public");
-        $publicPath = asset('storage/' . $filePath);
+
+
+
+
+        $url = Storage::putFile($path, $file);
+        $filename = basename($url);
+        $publicPath = Storage::url($url);
 
         return [
             'filename' => $filename,
@@ -21,9 +25,10 @@ class FileHandler
     }
 
 
-    public static function deleteFile($assetUrl)
+    public static function deleteFile(string $path, string $filepath)
     {
-        $path = str_replace(asset('storage/'), '', $assetUrl);
-        Storage::disk('public')->delete($path);
+
+        $filename = basename($filepath);
+        Storage::delete($path . "/" . $filename);
     }
 }

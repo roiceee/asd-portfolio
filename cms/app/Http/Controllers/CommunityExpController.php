@@ -73,6 +73,7 @@ class CommunityExpController extends Controller
         $image = $data['data']['image'];
 
         if ($image) {
+            FileHandler::deleteFile('community', $communityExp->image_path);
             $return = FileHandler::saveFile($image, "community");
             $communityExp->image_path = $return['path'];
         }
@@ -88,6 +89,7 @@ class CommunityExpController extends Controller
         $data = $request->all();
         $id = $data['id'];
         $communityExp = CommunityExperience::find($id);
+        FileHandler::deleteFile('community', $communityExp->image_path);
         $communityExp->delete();
         return redirect()->route('community');
     }
