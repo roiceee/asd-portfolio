@@ -53,7 +53,7 @@ export default function BasicInfo({ auth, basic_info }: PageProps) {
 
     const saveData = async (e: FormEvent) => {
         e.preventDefault();
-        router.post("/basicinfo", { _method: "put", data: data });
+        router.post("/basicinfo/put", { _method: "put", data: data });
     };
 
     return (
@@ -98,18 +98,18 @@ export default function BasicInfo({ auth, basic_info }: PageProps) {
                                     setValue={setImageValue}
                                     className="mt-4 max-w-sm"
                                 />
-                                {data.image_path !== "" && (
+                                {_data.image_path !== "" && (
                                     <div>
                                         <span>
                                             Current image:{" "}
                                             <a
                                                 target="_blank"
-                                                href={data.image_path}
+                                                href={_data.image_path}
                                                 className=" text-blue-600"
                                             >
                                                 View Image
                                             </a>
-                                            <img src={data.image_path} className="max-h-52 w-auto"/>
+                                            <img src={_data.image_path} className="max-h-52 w-auto"/>
                                         </span>
                                     </div>
                                 )}

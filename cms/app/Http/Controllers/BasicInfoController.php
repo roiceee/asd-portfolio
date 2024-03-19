@@ -58,8 +58,6 @@ class BasicInfoController extends Controller
         }
 
         // Return updated data to the frontend
-        return Inertia::render('BasicInfo', [
-            'basic_info' => $basicInfo,
-        ]);
+        return redirect()->route('basicinfo');
     }
 }

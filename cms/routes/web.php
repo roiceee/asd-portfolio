@@ -39,7 +39,7 @@ Route::get('/basicinfo', function (Request $request) {
     return app()->make(BasicInfoController::class)->get($request);
 })->middleware(['auth', 'verified'])->name('basicinfo');
 
-Route::put('/basicinfo', function (Request $request) {
+Route::put('/basicinfo/put', function (Request $request) {
     // pass to basicinfo controller
 
     return app()->make(BasicInfoController::class)->put($request);
