@@ -8,6 +8,7 @@ use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\TechstackController;
 use Illuminate\Foundation\Application;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -145,6 +146,10 @@ Route::delete('/techstack/delete', function (Request $request) {
     return app()->make(TechstackController::class)->delete($request);
 })->middleware(['auth', 'verified'])->name('techstack/patch');
 
+
+Route::get('/linkstorage', function () {
+    Artisan::call('storage:link');
+});
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
