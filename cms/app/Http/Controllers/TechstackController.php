@@ -84,4 +84,20 @@ class TechstackController extends Controller
 
         return redirect()->route("techstack");
     }
+
+    public function delete(Request $request)
+    {
+
+
+        $data = $request->all();
+
+        $techstack = Techstack::where('id', $data['id'])->first();
+
+        FileHandler::deleteFile($techstack->image_path);
+
+        $techstack->delete();
+
+
+        return redirect()->route("techstack");
+    }
 }

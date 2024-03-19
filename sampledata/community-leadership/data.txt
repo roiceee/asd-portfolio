@@ -1,0 +1,7 @@
+GDSC
+name=Google Developer Student Clubs USeP Lead
+description=I became the Google DSC Lead of University of Southeastern Philippines. This leadership role allowed me to cultivate a passion for technology and collaboration, and it played a pivotal part in my journey in tech.
+
+POSTMAN
+name=Postman Student Leader
+description=Being a Postman Student Leader, I was able to share my knowledge and passion for API development and testing to fellow students. I also learned a lot about API development and testing, and how it can help developers build better software.

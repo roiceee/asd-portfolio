@@ -17,11 +17,26 @@ import git from "public/git.png";
 import maven from "public/maven.png";
 import vite from "public/vite.png";
 import nodejs from "public/nodejs.png";
+import { Techstack } from "@/types/api/techstack";
 
-export default function TechStack() {
+interface Props {
+  techstack: Techstack[];
+}
+
+export default function TechStack({ techstack }: Props) {
   return (
     <div className="grid grid-cols-3 lg:grid-cols-6 gap-4 lg:gap-6">
-      <TechstackCard imageSrc={html} label="HTML" altText="HTML" />
+      {techstack.map((data, index) => {
+        return (
+          <TechstackCard
+            key={index}
+            imageSrc={data.image_path}
+            label={data.name}
+            altText={data.name}
+          />
+        );
+      })}
+      {/* <TechstackCard imageSrc={html} label="HTML" altText="HTML" />
       <TechstackCard imageSrc={css} label="CSS" altText="CSS" />
       <TechstackCard
         imageSrc={tailwind}
@@ -51,7 +66,7 @@ export default function TechStack() {
       <TechstackCard imageSrc={nodejs} label="NodeJS" altText="NodeJS" />
       <TechstackCard imageSrc={mongodb} label="MongoDB" altText="MongoDB" />
       <TechstackCard imageSrc={git} label="Git" altText="Git" />
-      <TechstackCard imageSrc={maven} label="Maven" altText="Maven" />
+      <TechstackCard imageSrc={maven} label="Maven" altText="Maven" /> */}
     </div>
   );
 }

@@ -15,6 +15,7 @@ import linkedin from "public/linkedin.svg";
 import postman from "public/postman.png";
 import style from "./image.module.css";
 import { CommunityExperience } from "@/types/api/community";
+import { Techstack } from "@/types/api/techstack";
 
 export default async function Home() {
   const basicInfoRes = await fetch(`${process.env.API_URL}/api/basicinfo`, {
@@ -54,6 +55,16 @@ export default async function Home() {
 
   const communityData: CommunityExperience[] = await community.json();
 
+  const techstack = await fetch(`${process.env.API_URL}/api/techstack`, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    cache: "no-store",
+  });
+
+  const techstackData: Techstack[] = await techstack.json();
+
   return (
     <main className="text-center">
       <section className="my-5 sm:my-10 md:my-24 lg:my-28 flex flex-col justify-center">
@@ -64,7 +75,7 @@ export default async function Home() {
               alt="profile picture"
               width={280}
               height={280}
-              className={style.profileImage}
+              className={style.profileImage + " rounded-full"}
             />
           </div>
 
@@ -242,7 +253,7 @@ export default async function Home() {
       )}
 
       <PageSection className="py-20" title="Used Technologies">
-        <TechStack />
+        <TechStack techstack={techstackData} />
       </PageSection>
 
       <PageSection className="py-20 pb-28" title="Let's build your ideas!">

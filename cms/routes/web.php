@@ -140,6 +140,11 @@ Route::put('/techstack/edit', function (Request $request) {
     return app()->make(TechstackController::class)->patch($request);
 })->middleware(['auth', 'verified'])->name('techstack/patch');
 
+Route::delete('/techstack/delete', function (Request $request) {
+
+    return app()->make(TechstackController::class)->delete($request);
+})->middleware(['auth', 'verified'])->name('techstack/patch');
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

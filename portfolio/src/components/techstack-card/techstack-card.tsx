@@ -17,7 +17,7 @@ function TechstackCard({ imageSrc, className, label, altText}: CardProps) {
             width={65}
             alt={altText}
             className="my-0"
-            placeholder="blur"
+            
           />
       </div>
       <div className="text-base mt-2">{label}</div>

@@ -1,0 +1,18 @@
+Riffrant
+name=Riffrant
+description=Social media application to express your opinions.
+demo=https://riffrant.vercel.app/
+code=https://github.com/roiceee/riffrant
+
+Organize
+name=Organize
+description=Task management progressive web application (PWA), accessible through web, desktop, and mobile.
+demo=https://organizeapp.vercel.app/
+code=https://github.com/roiceee/organize
+
+Phrase API
+name=Phrase API
+description=Share and look up for text-related data, and has exposed REST API endpoints for integrating with your applications.
+demo=https://phraseapi.vercel.app/
+code=https://github.com/roiceee/phrase-api-client
+

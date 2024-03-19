@@ -10,7 +10,7 @@ export default function Get({ auth, techstacks }: PageProps) {
     const techstackArray = techstacks as Techstack[];
 
     const deleteTech = useCallback((id: number) => {
-        router.delete("/projects", {
+        router.delete("/techstack/delete", {
             data: { id: id },
         });
     }, []);
@@ -30,7 +30,7 @@ export default function Get({ auth, techstacks }: PageProps) {
                         href={route("techstack/add")}
                         active={route().current("techstack/add")}
                     >
-                        Add Techstack
+                        Add Tech
                     </NavLink>
                 </div>
             }

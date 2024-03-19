@@ -53,7 +53,7 @@ Route::get('community', function () {
 
 Route::get('techstack', function () {
 
-    $techstack = Techstack::all();
+    $techstack = Techstack::orderBy('order')->get();
 
     return response()->json($techstack);
 });

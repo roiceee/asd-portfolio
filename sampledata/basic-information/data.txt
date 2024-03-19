@@ -1,0 +1,7 @@
+name=John Roice Aldeza
+title=Fullstack Developer
+image=CHOOSE IMAGE ON THIS FOLDER
+description=Hello there! I'm Roice, a curious developer who just likes to build stuff. I like digging into the nitty-gritty of backend functions and making user interface that just make sense. Let's team up and build some awesome stuff together!
+linkedin=https://linkedin/in/johnroicealdeza
+github=https://github.com/roiceee
+mail=jroicealdeza@gmail.com

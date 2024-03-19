@@ -17,6 +17,8 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+ 
+
   return (
     <html lang="en" data-theme="emerald" className={font.className}>
       <body>
