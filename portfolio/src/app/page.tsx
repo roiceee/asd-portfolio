@@ -65,6 +65,7 @@ export default async function Home() {
 
   const techstackData: Techstack[] = await techstack.json();
 
+  console.log(basicInfoData.image_path);
   return (
     <main className="text-center">
       <section className="my-5 sm:my-10 md:my-24 lg:my-28 flex flex-col justify-center">
