@@ -25,7 +25,7 @@ interface Props {
 
 export default function TechStack({ techstack }: Props) {
   return (
-    <div className="grid grid-cols-3 lg:grid-cols-6 gap-4 lg:gap-6">
+    <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
       {techstack.map((data, index) => {
         return (
           <TechstackCard

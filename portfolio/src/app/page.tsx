@@ -55,16 +55,6 @@ export default async function Home() {
 
   const communityData: CommunityExperience[] = await community.json();
 
-  const techstack = await fetch(`${process.env.API_URL}/api/techstack`, {
-    method: "GET",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    cache: "no-store",
-  });
-
-  const techstackData: Techstack[] = await techstack.json();
-
   
   return (
     <main className="text-center">
@@ -177,15 +167,7 @@ export default async function Home() {
             <Image src={gdsc} alt="GDSC" width={60} placeholder="blur" />
           }
           title="Google Developer Student Clubs USeP Lead"
-          year="2023-2024"
-          expand={
-            <div className="text-start prose text-sm md:text-base">
-              <div>
-                I became the Google DSC Lead of University of Southeastern
-                Philippines. This leadership role allowed me to cultivate a
-                passion for technology and collaboration, and it played a
-                pivotal part in my journey in tech.
-              </div>
+          year="2023-2024"<TechStack techstack={techstackData} />
               <ul>
                 <li>
                   <b className="text-accent">Team Leadership:</b> I led a team
@@ -253,9 +235,9 @@ export default async function Home() {
         </PageSection>
       )}
 
-      <PageSection className="py-20" title="Used Technologies">
+      {/* <PageSection className="py-20" title="Used Technologies">
         <TechStack techstack={techstackData} />
-      </PageSection>
+      </PageSection> */}
 
       <PageSection className="py-20 pb-28" title="Let's build your ideas!">
         <p className="text-lg">

@@ -13,8 +13,8 @@ function TechstackCard({ imageSrc, className, label, altText}: CardProps) {
       <div className="flex justify-center">
           <Image
             src={imageSrc}
-            height={65}
-            width={65}
+            height={120}
+            width={120}
             alt={altText}
             className="my-0"
             

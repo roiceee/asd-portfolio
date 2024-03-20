@@ -61,6 +61,16 @@ function MenuItems({ onClick }: MenuItemsProps) {
       <li onClick={onClick}>
         <Link
           className="font-bold text-lg active:bg-accent active:text-white"
+          href={"/techstack"}
+          ref={(element) => items.current.push(element)}
+          id="/techstack"
+        >
+          Techstack
+        </Link>
+      </li>
+      <li onClick={onClick}>
+        <Link
+          className="font-bold text-lg active:bg-accent active:text-white"
           href={"/contact"}
           ref={(element) => items.current.push(element)}
           id="/contact"
