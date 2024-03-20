@@ -18,7 +18,7 @@ function Footer({ className }: Props) {
 
   useEffect(() => {
     async function getData() {
-      const basicInfoRes = await fetch(`${process.env.API_URL}/api/basicinfo`, {
+      const basicInfoRes = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/basicinfo`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
