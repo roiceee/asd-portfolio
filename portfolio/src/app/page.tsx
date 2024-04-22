@@ -113,7 +113,7 @@ export default async function Home() {
 
       {projectsData.length !== 0 && (
         <PageSection className="py-16" title="Projects">
-          <div className="grid grid-cols-2 gap-2">
+          <div className="grid md:grid-cols-2 gap-2">
             {projectsData.map((project, index) => (
               <ProjectCard
                 className={`w-full mx-auto ${
