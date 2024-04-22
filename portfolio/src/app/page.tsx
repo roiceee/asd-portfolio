@@ -55,7 +55,6 @@ export default async function Home() {
 
   const communityData: CommunityExperience[] = await community.json();
 
-  
   return (
     <main className="text-center">
       <section className="my-5 sm:my-10 md:my-24 lg:my-28 flex flex-col justify-center">
@@ -114,10 +113,15 @@ export default async function Home() {
 
       {projectsData.length !== 0 && (
         <PageSection className="py-16" title="Projects">
-          <div>
-            {projectsData.map((project) => (
+          <div className="grid grid-cols-2 gap-2">
+            {projectsData.map((project, index) => (
               <ProjectCard
-                className="mx-auto mt-2"
+                className={`w-full mx-auto ${
+                  index === projectsData.length - 1 &&
+                  projectsData.length % 2 === 1
+                    ? " col-span-full"
+                    : ""
+                }`}
                 key={project.id}
                 title={project.title}
                 description={project.description}
