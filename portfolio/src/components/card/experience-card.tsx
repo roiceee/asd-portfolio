@@ -15,7 +15,7 @@ function ExperienceCard({
   year,
   expand,
 }: ExperienceCardProps) {
-  const [isExpand, setIsExpand] = useState(false);
+  const [isExpand, setIsExpand] = useState(true);
 
   const toggleExpand = () => {
     setIsExpand(!isExpand);
