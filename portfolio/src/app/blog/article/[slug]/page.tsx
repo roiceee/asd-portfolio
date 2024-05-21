@@ -2,17 +2,41 @@ import BackButton from "@/components/back-button";
 import { ArticleResponse } from "@/types/articletypes";
 import { formatDate } from "@/util/date";
 import { BlocksRenderer } from "@strapi/blocks-react-renderer";
+import { Metadata } from "next";
 
-export default async function Page({ params }: { params: { slug: string } }) {
-  const res : Response | undefined = await fetch(
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug: string };
+}): Promise<Metadata> {
+  const res: Response | undefined = await fetch(
     `${process.env.NEXT_PUBLIC_URL}/api/blog/article/${params.slug}`,
-    { next: {revalidate: 180} }
+    { next: { revalidate: 180 } }
   );
 
   const data: ArticleResponse | undefined = await res.json();
 
   if (!data) {
-      return <div>Not found</div>;
+    return {};
+  }
+
+  return {
+    title: data.data.attributes.title,
+    description: data.data.attributes.excerpt,
+    date: data.data.attributes.date_published,
+  } as Metadata;
+}
+
+export default async function Page({ params }: { params: { slug: string } }) {
+  const res: Response | undefined = await fetch(
+    `${process.env.NEXT_PUBLIC_URL}/api/blog/article/${params.slug}`,
+    { next: { revalidate: 180 } }
+  );
+
+  const data: ArticleResponse | undefined = await res.json();
+
+  if (!data) {
+    return <div>Not found</div>;
   }
 
   return (
