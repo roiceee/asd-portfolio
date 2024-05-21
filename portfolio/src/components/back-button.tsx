@@ -1,14 +1,13 @@
-"use client";
-import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 interface Props {
-  text?: string;className?: string;
+  text?: string;
+  className?: string;
 }
 
 export default function BackButton({ text, className }: Props) {
-  const router = useRouter();
   return (
-    <span onClick={router.back} className={className}>
+    <Link href={"/blog/1"} className={className}>
       {text ? (
         text
       ) : (
@@ -27,6 +26,6 @@ export default function BackButton({ text, className }: Props) {
           />
         </svg>
       )}
-    </span>
+    </Link>
   );
 }
