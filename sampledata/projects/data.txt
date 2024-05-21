@@ -16,3 +16,15 @@ description=Share and look up for text-related data, and has exposed REST API en
 demo=https://phraseapi.vercel.app/
 code=https://github.com/roiceee/phrase-api-client
 
+COPD Early Detection Device Interface
+name=COPD Early Detection Device Interface
+description=The COPD Early Detection Device Interface is a user-friendly platform designed for early identification and monitoring of Chronic Obstructive Pulmonary Disease symptoms.
+demo=https://copd-early-detection-device-interface.vercel.app/
+code=https://github.com/roiceee/copd-early-detection-device-interface
+
+
+DEVCON Summit Platform
+name=DEVCON Summit Platform
+description=The Summit Platform is a bespoke event platform created primarily for the DEVCON Mindanao Summit 2024 which allows users to view various information of the event such as schedule, speakers, and more.
+demo=#
+code=https://github.com/nedpals/summit-platform
