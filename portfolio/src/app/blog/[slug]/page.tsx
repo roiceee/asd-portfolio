@@ -4,7 +4,6 @@ import BlogCard from "@/components/card/blog-card";
 import { ArchivePreviewPage } from "@/types/archivetypes";
 import { BlogPreviewPage } from "@/types/blogtypes";
 import Link from "next/link";
-import { redirect } from "next/navigation";
 
 interface Props {
   params: { slug: string };

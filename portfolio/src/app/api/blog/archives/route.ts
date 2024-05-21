@@ -13,8 +13,13 @@ export async function GET(request: Request) {
     );
 
     const data = await res.json();
+
+    console.log(data);
     return NextResponse.json(data);
   } catch {
-    return NextResponse.json(undefined);
+    return NextResponse.json(
+      { message: "An error occurred" },
+      { status: 500 }
+    );
   }
 }
