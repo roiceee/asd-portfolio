@@ -58,67 +58,73 @@ export default function Projects({ auth, projects }: PageProps) {
                         )}
                         {projectArray.length !== 0 &&
                             projectArray.map((project) => (
-                                <section
-                                    key={project.id}
-                                    className="w-full border shadow-sm rounded-md p-4 flex justify-between"
-                                >
-                                    <div className="w-full flex gap-4">
-                                        <div>
-                                            <img
-                                                src={project.image_path}
-                                                className="w-16 h-16"
-                                            />
+                                <section className="w-full border shadow-sm rounded-md p-4">
+                                    <div>
+                                        <img
+                                            src={project.image_path}
+                                            className="w-16 h-16"
+                                        />
+                                    </div>
+                                    <section
+                                        key={project.id}
+                                        className="flex justify-between"
+                                    >
+                                        <div className="w-full flex gap-4">
+                                            <div>
+                                                <h3 className="text-lg font-bold">
+                                                    {project.title}
+                                                </h3>
+                                                <p>{project.description}</p>
+                                                <section className="flex gap-4 mt-4">
+                                                    <a
+                                                        href={project.demo_link}
+                                                        target="_blank"
+                                                        className="text-blue-500"
+                                                    >
+                                                        Demo
+                                                    </a>
+                                                    <a
+                                                        href={
+                                                            project.github_link
+                                                        }
+                                                        target="_blank"
+                                                        className="text-blue-500"
+                                                    >
+                                                        Github
+                                                    </a>
+                                                </section>
+                                            </div>
                                         </div>
-                                        <div>
-                                            <h3 className="text-lg font-bold">
-                                                {project.title}
-                                            </h3>
-                                            <p>{project.description}</p>
-                                            <section className="flex gap-4 mt-4">
+                                        <div className="w-[60px]">
+                                            {/* edit and delete button */}
+                                            <section className="flex flex-col gap-2 items-end">
                                                 <a
-                                                    href={project.demo_link}
-                                                    target="_blank"
-                                                    className="text-blue-500"
+                                                    href={
+                                                        "projects/edit/" +
+                                                        project.id
+                                                    }
                                                 >
-                                                    Demo
+                                                    <Button
+                                                        variant={"outline"}
+                                                        size={"icon"}
+                                                    >
+                                                        <Edit />
+                                                    </Button>
                                                 </a>
-                                                <a
-                                                    href={project.github_link}
-                                                    target="_blank"
-                                                    className="text-blue-500"
+                                                <Button
+                                                    variant={"destructive"}
+                                                    size={"icon"}
+                                                    onClick={() => {
+                                                        deleteProject(
+                                                            project.id
+                                                        );
+                                                    }}
                                                 >
-                                                    Github
-                                                </a>
+                                                    <Trash2 />
+                                                </Button>
                                             </section>
                                         </div>
-                                    </div>
-                                    <div className="w-[60px]">
-                                        {/* edit and delete button */}
-                                        <section className="flex flex-col gap-2 items-end">
-                                            <a
-                                                href={
-                                                    "projects/edit/" +
-                                                    project.id
-                                                }
-                                            >
-                                                <Button
-                                                    variant={"outline"}
-                                                    size={"icon"}
-                                                >
-                                                    <Edit />
-                                                </Button>
-                                            </a>
-                                            <Button
-                                                variant={"destructive"}
-                                                size={"icon"}
-                                                onClick={() => {
-                                                    deleteProject(project.id);
-                                                }}
-                                            >
-                                                <Trash2 />
-                                            </Button>
-                                        </section>
-                                    </div>
+                                    </section>
                                 </section>
                             ))}
                     </section>
