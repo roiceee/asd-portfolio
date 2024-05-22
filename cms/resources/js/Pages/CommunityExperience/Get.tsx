@@ -53,52 +53,58 @@ export default function Get({ auth, communityExp }: PageProps) {
                     )}
                     {communityExpArray.length !== 0 &&
                         communityExpArray.map((obj) => (
-                            <section
-                                key={obj.id}
-                                className="w-full border shadow-sm rounded-md p-4 flex justify-between"
-                            >
-                                <div className="w-full flex gap-4">
-                                    <div>
-                                        <a href={obj.image_path} target="_blank">
-                                            <img
-                                                src={obj.image_path}
-                                                className="w-16 h-16"
-                                            />
-                                        </a>
-                                    </div>
-                                    <div className="w-full">
-                                        <h3 className="text-lg font-bold">
-                                            {obj.title}
-                                        </h3>
-                                        <Textarea
-                                            readOnly
-                                            value={obj.description}
-                                            className="w-full"
+                            <section className="w-full border shadow-sm rounded-md p-4">
+                                <div>
+                                    <a href={obj.image_path} target="_blank">
+                                        <img
+                                            src={obj.image_path}
+                                            className="w-16 aspect-auto"
                                         />
+                                    </a>
+                                </div>
+                                <section
+                                    key={obj.id}
+                                    className="flex justify-between"
+                                >
+                                    <div className="w-full flex gap-4">
+                                        <div className="w-full">
+                                            <h3 className="text-lg font-bold">
+                                                {obj.title}
+                                            </h3>
+                                            <Textarea
+                                                readOnly
+                                                value={obj.description}
+                                                className="w-full"
+                                            />
+                                        </div>
                                     </div>
-                                </div>
-                                <div className="w-[60px]">
-                                    {/* edit and delete button */}
-                                    <section className="flex flex-col gap-2 items-end">
-                                        <a href={"community/edit/" + obj.id}>
-                                            <Button
-                                                variant={"outline"}
-                                                size={"icon"}
+                                    <div className="w-[60px]">
+                                        {/* edit and delete button */}
+                                        <section className="flex flex-col gap-2 items-end">
+                                            <a
+                                                href={
+                                                    "community/edit/" + obj.id
+                                                }
                                             >
-                                                <Edit />
+                                                <Button
+                                                    variant={"outline"}
+                                                    size={"icon"}
+                                                >
+                                                    <Edit />
+                                                </Button>
+                                            </a>
+                                            <Button
+                                                variant={"destructive"}
+                                                size={"icon"}
+                                                onClick={() => {
+                                                    deleteExp(obj.id);
+                                                }}
+                                            >
+                                                <Trash2 />
                                             </Button>
-                                        </a>
-                                        <Button
-                                            variant={"destructive"}
-                                            size={"icon"}
-                                            onClick={() => {
-                                                deleteExp(obj.id);
-                                            }}
-                                        >
-                                            <Trash2 />
-                                        </Button>
-                                    </section>
-                                </div>
+                                        </section>
+                                    </div>
+                                </section>
                             </section>
                         ))}
                 </section>

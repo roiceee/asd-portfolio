@@ -62,7 +62,8 @@ export default function Projects({ auth, projects }: PageProps) {
                                     <div>
                                         <img
                                             src={project.image_path}
-                                            className="w-16 h-16"
+                                            className="w-16 aspect-auto"
+
                                         />
                                     </div>
                                     <section
