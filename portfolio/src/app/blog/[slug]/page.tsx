@@ -39,8 +39,15 @@ export default async function Page({ params, searchParams }: Props) {
 
   const archiveData: ArchivePreviewPage | undefined = await archiveRes.json();
 
-  if (!data || !archiveData) {
-    return <div>Not found</div>;
+  if (!data || !archiveData || !data.data) {
+    return (
+      <section className=" md:flex gap-12">
+        <section className="prose">
+          <h2>No blog posts found.</h2>
+          <BackButton text="Go Back" className="btn btn-sm" />
+        </section>
+      </section>
+    );
   }
 
   if (data.data.length === 0) {

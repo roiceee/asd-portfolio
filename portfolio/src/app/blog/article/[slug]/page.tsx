@@ -16,7 +16,7 @@ export async function generateMetadata({
 
   const data: ArticleResponse | undefined = await res.json();
 
-  if (!data) {
+  if (!data || !data.data) {
     return {};
   }
 
@@ -33,10 +33,28 @@ export default async function Page({ params }: { params: { slug: string } }) {
     { next: { revalidate: 180 } }
   );
 
+  if (!res) {
+    return (
+      <main className="prose max-w-2xl mx-auto my-12">
+        <section className="mb-8">
+          <BackButton />
+        </section>
+        <div>Article Not found</div>
+      </main>
+    );
+  }
+
   const data: ArticleResponse | undefined = await res.json();
 
-  if (!data) {
-    return <div>Not found</div>;
+  if (!data || !data.data) {
+    return (
+      <main className="prose max-w-2xl mx-auto my-12">
+        <section className="mb-8">
+          <BackButton />
+        </section>
+        <div>Article Not found</div>
+      </main>
+    );
   }
 
   return (
